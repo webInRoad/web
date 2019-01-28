@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            let txt = document.getElementById("txt1");
+            let btn = document.getElementById("btn1");
+            btn.onclick = function(){
+                let str = txt.value;
+                let re = /^[1-9]\d{4,11}$/;
+                if(re.test(str)){
+                    alert("通过")
+                }else{
+                    alert("失败")
+                }
+            }
+        }
+        //总结:一.元字符 []
+        // 1.任何一个(只许一个) /a[abc]q/=> aaq abq acq 而aabq X
+        // 2.范围 /[0-9]/ /[a-z]/i /[a-z0-9]/ [3-59]=>不是代表3到59而是[3-5 9]
+        // 3.排除 [^0-9] 不是数字 [^0-9a-z]
+        // 二、量词 {}
+        // 1.固定几个 {n} /a{6}/ /\d{11}/
+        // 2.{n,m} n到m个 /\d{5,12}/
+        // 3.{n,} 从n个开始到无数个 /\w{6,}/
+        // +   {1,}
+        // ?   {0,1}
+
+        // 如.js/.jsx=>/\.jsx?/    .js  .jsx
+        // 再比如 a 任何字符5-18 z=>/a.{5,18}z/
+        // 三、修饰符 ^ $
+        //     修饰符=>条件
+        //     ^ 行首
+        //     $ 行尾
+        // 如/\.js/      1.js.png    1.html.js.png
+        //     /\.js$/i    1.js    1231.txt.js
+        //     /^https?:\/\//
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1" >
+    <input type="button" id="btn1" value="验证">
+</body>
+</html>

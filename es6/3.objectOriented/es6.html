@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            showName(){
+                alert(this.name);
+            }
+            showAge(){
+                alert(this.age)
+            }
+        }
+        let p = new Person('zjh',18);
+        // p.showName();
+        // p.showAge();
+
+        class Worker extends Person{
+            constructor(name,age,job){
+                super(name,age);
+                this.job = job;
+            }
+            showJob(){
+                alert(this.job);
+            }
+        }
+        let w = new Worker('cyz',19,'IT');
+        w.showName();
+        w.showAge();
+        w.showJob();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

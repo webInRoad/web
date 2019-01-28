@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        let promise = new Promise(function(resoved,reject){
+            $.ajax({
+                // url:'data/1.txt',//返回的将会是个string，而不是json对象
+                url:'data/1.json',
+                datatType:'json',
+                success(result){
+                    resoved(result);
+                },
+                error(error){
+                    debugger
+                    reject(error);
+                }
+            })
+        })
+        promise.then(result=>{
+            debugger
+            console.info(result.a)
+        },error=>{
+            console.info(error)
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

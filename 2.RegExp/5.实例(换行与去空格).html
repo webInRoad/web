@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //1.换行
+        // window.onload = function(){
+        //     let div = document.getElementById("d1");
+        //     let str = "67787777##232323##adsfaasfadx##";
+        //     div.innerHTML = str.split(/##/g).map(item=>{
+        //         return `<p>${item}</p>`;
+        //     }).join('')
+        // }
+        //2.去空格
+        let str = '232323 sdsdsaxc 8999';
+        let reStr = str.replace(/\s+/g,'');
+        console.info(reStr);
+        //总结:1.\d数字、\s空格
+        //2.string的replace方法并不会更改原字符串，replace方法返回的是替换后的字符串
+    </script>
+</head>
+<body>
+    <div id="d1"></div>
+</body>
+</html>

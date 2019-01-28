@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        let str = '23sdsd23aasd2323asdAsd899sdd';
+        // let re = /\d+/;//23
+        let re = /\d+/g;//23,23,2323,899
+        alert(str.match(re))
+        console.info(str.match(re));//["23", "23", "2323", "899"] 数组
+        //总结:search与match不同之处:search是查找匹配上的正则所在的位置，match是查找匹配上的字符串;
+        //2.正则默认是贪婪模式，比如23323a23 进行\d+匹配，只会匹配上23323与23，而不是2、3、3...
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

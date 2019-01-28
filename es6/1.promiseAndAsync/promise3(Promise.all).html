@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        Promise.all([
+            $.ajax({url:'data/1.json',dataType:'json'}),
+            $.ajax({url:'data/2.json',dataType:'json'}),
+            $.ajax({url:'data/3.json',dataType:'json'})
+        ]).then(([res1,res2,res3])=>{
+            console.info(res1,res2,res3)
+        })
+        //该写法是简单，可是没有逻辑存在，比如获取2.json的请求的参数是1.json的返回值，该方式就不可取
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

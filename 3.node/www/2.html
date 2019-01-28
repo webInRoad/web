@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#reg").click(function(){
+                $.ajax({
+                    url:'/reg',
+                    dataType:'json',
+                    data:{
+                        username:$("#username").val(),
+                        pass:$("#pass").val()
+                    }
+                }).then((result)=>{
+                    if(result["error"]){
+                        alert(result["msg"])
+                    }else{
+                        alert("注册成功")
+                    }
+                })
+            })
+            $("#login").click(function(){
+                $.ajax({
+                    url:'/login',
+                    dataType:'json',
+                    data:{
+                        username:$("#username").val(),
+                        pass:$("#pass").val()
+                    }
+                }).then((result)=>{
+                    if(result["error"]){
+                        alert(result["msg"])
+                    }else{
+                        alert("登录成功")
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" id="username"><br>
+    <input type="password" id="pass"><br>
+    <input type="button" id="reg" value="注册">
+    <input type="button" id="login" value="登录">
+</body>
+</html>

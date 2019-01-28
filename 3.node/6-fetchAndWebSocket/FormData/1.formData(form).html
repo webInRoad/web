@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            let oForm = document.querySelector("#form1");
+            oForm.onsubmit = function(){
+                debugger
+                let formData = new FormData(oForm);
+                let xhr = new XMLHttpRequest();
+                xhr.open(oForm.method,oForm.action,true);
+                xhr.send(formData);
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState==4){
+                        if(xhr.status>=200&&xhr.status<300||xhr.status==304){
+                            console.info(xhr.responseText);
+                            console.info("成功了")
+                        }else{
+                            console.info("失败了")
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="http://localhost:8080/" method="post" id="form1">
+        用户: <input type="text" name="username"><br>
+        密码: <input type="password" name="pass"><br>
+        <input type="file" name="f1"><br>
+        <input type="submit" value="提交" id="btn">
+    </form>
+</body>
+</html>

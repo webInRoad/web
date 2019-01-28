@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            let text = document.getElementById("txt1");
+            let btn = document.getElementById("btn1");
+            btn.onclick = function(){
+                let textVal = text.value;
+                let re = /\.(jpg|png|gif)$/i;
+                if(re.test(textVal)){
+                    alert("正确");
+                }else{
+                    alert("失败");
+                }
+            }
+        }
+        //总结:1.或 |
+    // 2.优先级，或的优先级最低，所以/\.jpg|png|gif$/i表示\.jpg或png或gif$,所以需要加上括号提升优先级
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1">
+    <input type="button" id="btn1" value="验证">
+</body>
+</html>

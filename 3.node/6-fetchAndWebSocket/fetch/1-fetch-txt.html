@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            let btn = document.getElementById("btn");
+            btn.onclick = async function(){
+                //1.请求
+                let data = await fetch('data/1.txt');
+                //2.解析
+                let str = await data.text();
+                console.info(str)
+            }
+        }
+        //fetch与text都是异步，并且返回的是promise，所以用async与await配合使用
+        //fetch——原生、xhr 1.读取 2.解析
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="读取">
+</body>
+</html>

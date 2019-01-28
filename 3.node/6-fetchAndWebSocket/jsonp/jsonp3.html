@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function show({s}){
+            console.info(s)
+        }
+        window.onload = function(){
+            let text = document.querySelector("#text");
+            text.oninput = function(){
+                let src = `https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${this.value}&cb=show`;
+                let script = document.createElement('script');
+                script.src = src;
+                document.head.appendChild(script);
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="text">
+</body>
+</html>
