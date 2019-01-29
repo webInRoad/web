@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://localhost:8081/socket.io/socket.io.js"></script>
+    <script>
+        let sock = io.connect('ws://localhost:8081');
+        sock.on('a',result=>{//接收
+            console.info(result)
+        })
+        sock.emit('b',54);//发送
+        sock.on('time',result=>{
+            console.info(result)
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
