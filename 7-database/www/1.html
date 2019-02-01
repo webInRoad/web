@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#reg").click(async ()=>{
+                let data = await $.ajax({
+                    url:'http://localhost:8089/reg',
+                    data:{
+                        username:$("#name").val(),
+                        password:$("#password").val()
+                    }
+                })
+                alert(data)
+            })
+
+            $("#login").click(async ()=>{
+                let data = await $.ajax({
+                    url:'http://localhost:8089/login',
+                    data:{
+                        username:$("#name").val(),
+                        password:$("#password").val()
+                    }
+                })
+                alert(data)
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    用户: <input type="text" id="name"><br>
+    密码: <input type="password" id="password"><br>
+    <input type="button" value="注册" id="reg">
+    <input type="button" value="登录" id="login">
+</body>
+</html>
